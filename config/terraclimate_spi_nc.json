@@ -3,7 +3,7 @@
   "source_link": "https://www.climatologylab.org/terraclimate.html",
   "description": "Standardized Precipitation Index (Gamma distribution)",
   "time_scale": [1, 2, 3, 6, 9, 12, 18, 24, 36, 48, 60, 72],
-  "main_variable": "spi_gamma_{time_scale}",
+  "main_variable": "spi_gamma_{time_scale}_month",
   "coverage_description": "Global",
   "min_longitude": -180,
   "min_latitude": -90,
