@@ -15,7 +15,7 @@
   "temporal_resolution": "monthly",
   "data_packaging": "Single GeoTIFF per month",
   "content_description": "Each GeoTIFF file contains monthly SPI data spanning from 1958 to 2022",
-  "naming_convention": "wld_cli_terraclimate_spi18_{yyyymmdd}.tif",
+  "naming_convention": "wld_cli_terraclimate_spi18_yyyymmdd.tif",
   "format": "GeoTIFF",
   "units": "unitless",
   "missing_value": "NaN",

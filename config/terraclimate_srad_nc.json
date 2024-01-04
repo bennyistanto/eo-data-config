@@ -15,7 +15,7 @@
   "temporal_resolution": "monthly",
   "data_packaging": "Single NetCDF per year",
   "content_description": "Each NetCDF file contains all monthly data for one year",
-  "naming_convention": "TerraClimate_srad_{year}.nc",
+  "naming_convention": "TerraClimate_srad_yyyy.nc",
   "format": "NetCDF",
   "netcdf_standard_name": "downwelling_shortwave_flux_in_air",
   "netcdf_packed": "yes",

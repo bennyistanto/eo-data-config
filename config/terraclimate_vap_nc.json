@@ -15,7 +15,7 @@
   "temporal_resolution": "monthly",
   "data_packaging": "Single NetCDF per year",
   "content_description": "Each NetCDF file contains all monthly data for one year",
-  "naming_convention": "TerraClimate_vap_{year}.nc",
+  "naming_convention": "TerraClimate_vap_yyyy.nc",
   "format": "NetCDF",
   "netcdf_standard_name": "water_vapor_partial_pressure_in_air",
   "netcdf_packed": "yes",

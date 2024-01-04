@@ -15,7 +15,7 @@
   "spatial_resolution": "4km",
   "temporal_resolution": "monthly",
   "data_packaging": "Single NetCDF for the whole period",
-  "content_description": "Each NetCDF file contains monthly SPEI data spanning from 1958 to 2022 for a specific time scale",
+  "content_description": "Each NetCDF file contains monthly SPI data spanning from 1958 to 2022 for a specific time scale",
   "naming_convention": "wld_cli_terraclimate_spi_gamma_{time_scale}_month.nc",
   "format": "NetCDF",
   "netcdf_long_name": "Standardized Precipitation Index (Gamma distribution), {time_scale}-month",

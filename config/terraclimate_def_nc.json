@@ -15,7 +15,7 @@
   "temporal_resolution": "monthly",
   "data_packaging": "Single NetCDF per year",
   "content_description": "Each NetCDF file contains all monthly data for one year",
-  "naming_convention": "TerraClimate_def_{year}.nc",
+  "naming_convention": "TerraClimate_def_yyyy.nc",
   "format": "NetCDF",
   "netcdf_standard_name": "water_potential_evaporation_amount_minus_water_evaporation_amount",
   "netcdf_packed": "yes",
