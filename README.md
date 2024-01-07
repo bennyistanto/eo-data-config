@@ -10,50 +10,50 @@ Configuration files, such as `.ini`, `.json`, `.yaml`, and `.toml`, play a cruci
 
 1. **INI**
    
-**Strengths:**
-* Simple and human-readable.
-* Has been used for a long time, especially in Windows environments.
-* Lightweight with no nested structures.
+    **Strengths:**
+    * Simple and human-readable.
+    * Has been used for a long time, especially in Windows environments.
+    * Lightweight with no nested structures.
 
-**Weaknesses:**
-* Doesn't support complex data structures (e.g., lists, nested dictionaries).
-* Not standardized; INI parsers might behave differently.
-* Less popular for modern applications, especially in the realm of data science and analytics.
+    **Weaknesses:**
+    * Doesn't support complex data structures (e.g., lists, nested dictionaries).
+    * Not standardized; INI parsers might behave differently.
+    * Less popular for modern applications, especially in the realm of data science and analytics.
 
 2. **JSON (JavaScript Object Notation)**
    
-**Strengths:**
-* Standardized and widely accepted.
-* Supported by most programming languages.
-* Supports complex data structures (arrays, nested objects).
-* Directly used and interpretable in JavaScript.
+    **Strengths:**
+    * Standardized and widely accepted.
+    * Supported by most programming languages.
+    * Supports complex data structures (arrays, nested objects).
+    * Directly used and interpretable in JavaScript.
 
-**Weaknesses:**
-* Less human-readable compared to YAML or INI due to braces, quotes, etc.
-* Doesn't support comments natively.
+    **Weaknesses:**
+    * Less human-readable compared to YAML or INI due to braces, quotes, etc.
+    * Doesn't support comments natively.
 
 3. **YAML (YAML Ain't Markup Language)**
    
-**Strengths:**
-* Highly human-readable with a clean format.
-* Supports complex data structures.
-* Allows comments, which can be beneficial for configuration files.
-* Popular in various applications, especially in DevOps (e.g., Docker, Kubernetes).
+    **Strengths:**
+    * Highly human-readable with a clean format.
+    * Supports complex data structures.
+    * Allows comments, which can be beneficial for configuration files.
+    * Popular in various applications, especially in DevOps (e.g., Docker, Kubernetes).
 
-**Weaknesses:**
-* More error-prone (e.g., indentation errors can break parsing).
-* Potential security risks if executing dynamic content (always use safe loaders).
+    **Weaknesses:**
+    * More error-prone (e.g., indentation errors can break parsing).
+    * Potential security risks if executing dynamic content (always use safe loaders).
 
 4. **TOML (Tom's Obvious, Minimal Language)**
    
-**Strengths:**
-* Designed to be easy to read due to its clear semantics.
-* Supports complex data structures.
-* Gaining popularity in certain ecosystems (e.g., Rust's `Cargo.toml`).
+    **Strengths:**
+    * Designed to be easy to read due to its clear semantics.
+    * Supports complex data structures.
+    * Gaining popularity in certain ecosystems (e.g., Rust's `Cargo.toml`).
 
-**Weaknesses:**
-* Not as widely adopted as JSON or YAML.
-* Some find its syntax a bit more verbose than that of INI, though it's more expressive.
+    **Weaknesses:**
+    * Not as widely adopted as JSON or YAML.
+    * Some find its syntax a bit more verbose than that of INI, though it's more expressive.
 
 ## Recommendation for Earth Observation Analysis in the Context of Data Science:
 
@@ -145,4 +145,75 @@ print(ndvi_description)
 
 The outputs of the above snippets would both print: `Normalized Difference Vegetation Index`
 
-For the Space2Stats activities, we are agreed to use JSON format as out configuration file.
+## Space2Stats
+
+For the Space2Stats activities, we are agreed to use JSON format as out configuration file. Below is example configuration file for climate-derived product data with `netcdf` and `geotiff` data format.
+
+For simplicity, each JSON file has a single root entry with the variable name and all the nested information is the metadata.
+
+**EO data with `netcdf` data format**
+
+```json
+{
+  "source": "Derived from TerraClimate data",
+  "source_link": "https://www.climatologylab.org/terraclimate.html",
+  "description": "Standardized Precipitation Evapotranspiration Index (Gamma distribution)",
+  "time_scale": [1, 2, 3, 6, 9, 12, 18, 24, 36, 48, 60, 72],
+  "main_variable": "spei_gamma_{time_scale}",
+  "coverage_description": "Global",
+  "min_longitude": -180,
+  "min_latitude": -90,
+  "max_longitude": 180,
+  "max_latitude": 90,
+  "start_year": 1958,
+  "end_year": 2022,
+  "coordinate_system": "EPSG:4326",
+  "spatial_resolution": "4km",
+  "temporal_resolution": "monthly",
+  "data_packaging": "Single NetCDF for the whole period",
+  "content_description": "Each NetCDF file contains monthly SPEI data spanning from 1958 to 2022 for a specific time scale",
+  "naming_convention": "wld_cli_terraclimate_spei_gamma_{time_scale}_month.nc",
+  "format": "NetCDF",
+  "netcdf_long_name": "Standardized Precipitation Evapotranspiration Index (Gamma distribution), {time_scale}-month",
+  "netcdf_packed": "no",
+  "netcdf_scale_factor": 0.0,
+  "netcdf_offset": 0.0,
+  "units": "unitless",
+  "missing_value": "NaN",
+  "cdm_data_type": "GRID",
+  "s3_bucket_base": "s3://wbgdecinternal-ntl/climate/products/spei-terraclimate/nc",
+  "notes": "This datasets developed by GOST/DECAT/DEC Data Group of The World Bank",
+  "references": "https://doi.org/10.1038/sdata.2017.191"
+}
+```
+
+**EO data with `geotiff` data format**
+
+```json
+{
+  "source": "Derived from TerraClimate data",
+  "source_link": "https://www.climatologylab.org/terraclimate.html",
+  "description": "Standardized Precipitation Evapotranspiration Index (Gamma distribution), 12-month",
+  "main_variable": "spei_gamma_12_month",
+  "coverage_description": "Global",
+  "min_longitude": -180,
+  "min_latitude": -90,
+  "max_longitude": 180,
+  "max_latitude": 90,
+  "start_year": 1958,
+  "end_year": 2022,
+  "coordinate_system": "EPSG:4326",
+  "spatial_resolution": "4km",
+  "temporal_resolution": "monthly",
+  "data_packaging": "Single GeoTIFF per month",
+  "content_description": "Each GeoTIFF file contains monthly SPEI data spanning from 1958 to 2022",
+  "naming_convention": "wld_cli_terraclimate_spei12_yyyymmdd.tif",
+  "format": "GeoTIFF",
+  "units": "unitless",
+  "missing_value": "NaN",
+  "cdm_data_type": "GRID",
+  "s3_bucket_base": "s3://wbgdecinternal-ntl/climate/products/spei-terraclimate/geotiff/spei12",
+  "notes": "This datasets developed by GOST/DECAT/DEC Data Group of The World Bank",
+  "references": "https://doi.org/10.1038/sdata.2017.191"
+}
+```
