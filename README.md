@@ -147,9 +147,9 @@ The outputs of the above snippets would both print: `Normalized Difference Veget
 
 ## Space2Stats
 
-For the Space2Stats activities, we are agreed to use JSON format as out configuration file. Below is example configuration file for climate-derived product data with `netcdf` and `geotiff` data format.
+For the Space2Stats activities, we are agreed to use JSON format as out configuration file. For simplicity, each JSON file has a single root entry with the variable name and all the nested information is the metadata.
 
-For simplicity, each JSON file has a single root entry with the variable name and all the nested information is the metadata.
+Below is example configuration file for climate-derived product data with `netcdf` and `geotiff` data format.
 
 **EO data with `netcdf` data format**
 
